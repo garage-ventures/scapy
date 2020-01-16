@@ -39,6 +39,8 @@ from scapy.error import warning
 import scapy.modules.six as six
 from scapy.modules.six.moves import range
 
+import cscapy
+
 
 """
 Helper class to specify a protocol extendable for runtime modifications
@@ -1561,26 +1563,28 @@ class BitField(Field):
             return s
 
     def getfield(self, pkt, s):
-        if isinstance(s, tuple):
-            s, bn = s
-        else:
-            bn = 0
-        # we don't want to process all the string
-        nb_bytes = (self.size + bn - 1) // 8 + 1
-        w = s[:nb_bytes]
+        # if isinstance(s, tuple):
+        #     s, bn = s
+        # else:
+        #     bn = 0
+        # # we don't want to process all the string
+        # nb_bytes = (self.size + bn - 1) // 8 + 1
+        # w = s[:nb_bytes]
+        #
+        # # split the substring byte by byte
+        # _bytes = struct.unpack('!%dB' % nb_bytes, w)
+        #
+        # b = 0
+        # for c in range(nb_bytes):
+        #     b |= int(_bytes[c]) << (nb_bytes - c - 1) * 8
+        #
+        # # get rid of high order bits
+        # b &= (1 << (nb_bytes * 8 - bn)) - 1
+        #
+        # # remove low order bits
+        # b = b >> (nb_bytes * 8 - self.size - bn)
 
-        # split the substring byte by byte
-        _bytes = struct.unpack('!%dB' % nb_bytes, w)
-
-        b = 0
-        for c in range(nb_bytes):
-            b |= int(_bytes[c]) << (nb_bytes - c - 1) * 8
-
-        # get rid of high order bits
-        b &= (1 << (nb_bytes * 8 - bn)) - 1
-
-        # remove low order bits
-        b = b >> (nb_bytes * 8 - self.size - bn)
+        s, b, bn = cscapy.bit_getfield(self.size, pkt, s)
 
         if self.rev:
             b = self.reverse(b)
