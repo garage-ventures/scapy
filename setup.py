@@ -47,6 +47,9 @@ setup(
     },
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, <4',
     # pip > 9 handles all the versioning
+    install_require=[
+        "cscapy @ git+ssh://git@github.com/tetor/cscapy.git#egg=cscapy"
+    ],
     extras_require={
         'basic': ["ipython"],
         'complete': [
