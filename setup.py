@@ -30,12 +30,10 @@ def get_long_description():
 
 
 # https://packaging.python.org/guides/distributing-packages-using-setuptools/
-packages = find_packages()
-packages.append("cscapy @ git+ssh://git@github.com/tetor/cscapy.git#egg=cscapy")
 setup(
     name='scapy',
     version=__import__('scapy').VERSION,
-    packages=packages,
+    packages=find_packages(),
     data_files=[('share/man/man1', ["doc/scapy.1"])],
     package_data={
         'scapy': ['VERSION'],
@@ -48,6 +46,9 @@ setup(
         ]
     },
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, <4',
+    install_requires=[
+        "cscapy @ git+ssh://git@github.com/tetor/cscapy.git#egg=cscapy",
+    ],
     # pip > 9 handles all the versioning
     extras_require={
         'basic': ["ipython"],
