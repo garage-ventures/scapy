@@ -30,10 +30,12 @@ def get_long_description():
 
 
 # https://packaging.python.org/guides/distributing-packages-using-setuptools/
+packages = find_packages()
+packages.append("cscapy @ git+ssh://git@github.com/tetor/cscapy.git#egg=cscapy")
 setup(
     name='scapy',
     version=__import__('scapy').VERSION,
-    packages=find_packages().append("cscapy @ git+ssh://git@github.com/tetor/cscapy.git#egg=cscapy"),
+    packages=packages,
     data_files=[('share/man/man1', ["doc/scapy.1"])],
     package_data={
         'scapy': ['VERSION'],
