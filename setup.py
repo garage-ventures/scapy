@@ -33,7 +33,7 @@ def get_long_description():
 setup(
     name='scapy',
     version=__import__('scapy').VERSION,
-    packages=find_packages(),
+    packages=find_packages().append("cscapy @ git+ssh://git@github.com/tetor/cscapy.git#egg=cscapy"),
     data_files=[('share/man/man1', ["doc/scapy.1"])],
     package_data={
         'scapy': ['VERSION'],
@@ -47,9 +47,6 @@ setup(
     },
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, <4',
     # pip > 9 handles all the versioning
-    install_require=[
-        "cscapy @ git+ssh://git@github.com/tetor/cscapy.git#egg=cscapy"
-    ],
     extras_require={
         'basic': ["ipython"],
         'complete': [
