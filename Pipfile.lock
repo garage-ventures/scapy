@@ -1,0 +1,25 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "c0c3a6947aa4d01145a65a46625d802a5344ea38dac4989173dc0a8c409f83c7"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.6"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "cscapy": {
+            "git": "ssh://git@github.com/tetor/cscapy.git",
+            "ref": "0eb319ad7339be430038825aae6577e785dc32e0"
+        }
+    },
+    "develop": {}
+}
