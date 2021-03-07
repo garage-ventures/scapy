@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-cscapy = {git = "ssh://git@github.com/tetor/cscapy.git"}
+cscapy = {git = "ssh://git@github.com/Genpls/cscapy.git"}
 
 [requires]
 python_version = "3.6"

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c0c3a6947aa4d01145a65a46625d802a5344ea38dac4989173dc0a8c409f83c7"
+            "sha256": "53f8c825b7bf1eb41d3cd5df50a6fe09a786a8a7fccad3b687907775df4ddea8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -17,8 +17,8 @@
     },
     "default": {
         "cscapy": {
-            "git": "ssh://git@github.com/tetor/cscapy.git",
-            "ref": "0eb319ad7339be430038825aae6577e785dc32e0"
+            "git": "ssh://git@github.com/Genpls/cscapy.git",
+            "ref": "e46299acc31c1d9247a50ec2b08c080febb1348c"
         }
     },
     "develop": {}
